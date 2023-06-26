@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SortTable from "./sorttable";
 const useMountEffect = (fun) => useEffect(fun, [])
 function Books() {
     const [books, setBooks] = useState([]);
@@ -21,28 +22,7 @@ function Books() {
         ) : (
           <>
             <h1>Books</h1>
-            <table border={1}>
-              <tr>
-                <th>SNo</th>
-                <th>Cover</th>
-                <th>Author</th>
-                <th>Biography</th>
-                <th>Title</th>
-                <th>Reading time</th>
-                <th>Publication date</th>
-              </tr>
-              {books && Object.keys(books).length>1 && books["Extracts"].map((book,index) => (
-                <tr>
-                  <td>{index+1}</td>
-                  <td><img src={book.jacketUrl}></img></td>
-                  <td>{book.author}</td>
-                  <td>{book.authorBiography}</td>
-                  <td>{book.title}</td>
-                  <td>{book.estimatedReadingTimeMinutes}</td>
-                  <td>{book.publicationDate}</td>
-                </tr>
-              ))}
-            </table>
+          <SortTable booksdata={books}></SortTable>
           </>
         )}
       </div>
