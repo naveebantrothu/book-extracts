@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import SortTable from "./sorttable";
-const useMountEffect = (fun) => useEffect(fun, [])
 function Books() {
     const [books, setBooks] = useState([]);
     const [loading, setLoading] = useState(false);
